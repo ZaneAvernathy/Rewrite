@@ -1,0 +1,14 @@
+
+#ifndef __DEBUG
+  #define __DEBUG
+
+  // Debugging buildfile
+
+  // This file's purpose is to define `__DEBUG` and possibly
+  // other debugging-related definitions.
+
+  MESSAGE Debug build
+
+  #include "Build.event"
+
+#endif // __DEBUG

@@ -1,0 +1,8 @@
+
+/BIN
+/.CACHE
+**/*.sublime*
+**/*.lyn.event
+**/*.o
+**/*.asm
+**/*.dmp

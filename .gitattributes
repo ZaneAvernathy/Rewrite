@@ -1,0 +1,7 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Source files
+*.asm linguist-language=Assembly
+*.inc linguist-language=Assembly
+*.s   linguist-language=Assembly

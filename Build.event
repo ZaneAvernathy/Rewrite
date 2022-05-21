@@ -1,0 +1,28 @@
+
+#ifndef __MAIN
+  #define __MAIN
+
+  /*
+   * Example buildfile for testing/demonstration.
+   */
+
+  #include "EAstdlib.event"
+  #include "Extensions/Hack Installation.txt"
+  #include "Tools/Tool Helpers.txt"
+
+  #define FreeSpace    $B2A610
+  #define FreeSpaceEnd $C00000
+
+  ORG FreeSpace
+
+    #include "SRC/SkipHuffmanDecompression/Installer.event"
+
+    // Testing `SkipHuffmanDecompression`
+
+    TestString:; BYTE 55 55 54; BYTE 0
+    // Replacing the difficult mode difficulty select text
+    setText(0x14B, TestString)
+
+  ASSERT (FreeSpaceEnd - CURRENTOFFSET)
+
+#endif // __MAIN
