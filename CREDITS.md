@@ -5,6 +5,8 @@ In the vanilla game, all text is compressed using Huffman encoding, which is rea
 
 This is made by me (Zane Avernathy)!
 
+This is functionally equivalent to the AntiHuffman hack made by Hextator and Nintenlord.
+
 Shoutouts to the folks who work on the [**FE8 decompilation project**](https://github.com/FireEmblemUniverse/fireemblem8u). I was able to fit things easily without using freespace by doing some optimizations to [**this**](https://github.com/FireEmblemUniverse/fireemblem8u/blob/8ecec19f03e04343c332a2288666cf2c0aba36d2/src/messdecode.c#L53).
 
 ### Project structure, tools, etc.
