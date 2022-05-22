@@ -22,7 +22,7 @@
       RESERVE(0x00002BA4, 0x00002BB8)
 
     ORG 0x0000A1C8
-      #include "Main.lyn.event"
+      #include "SkipHuffmanDecompression.lyn.event"
       #ifdef __DEBUG
         MESSAGE Skip Huffman Decompression Main ends at CURRENTOFFSET
       #endif // __DEBUG
