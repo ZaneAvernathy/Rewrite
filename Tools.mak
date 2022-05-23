@@ -8,6 +8,12 @@ endif
 
 include $(DEVKITARM)/base_tools
 
+ifeq ($(shell python -c "import sys; print(int(sys.version_info[0] > 2))"),1)
+  export PYTHON3 := python
+else
+  export PYTHON3 := python3
+endif
+
 # One day I'll set up a Linux VM to test this.
 
 ifeq ($(OS),Windows_NT)
@@ -26,11 +32,14 @@ export ROOT := $(realpath .)
 export DESTDIR  := $(ROOT)/BIN
 export SRCDIR   := $(ROOT)/SRC
 export CACHEDIR := $(ROOT)/.CACHE
+export TOOLSDIR := $(ROOT)/TOOLS
 
 export EADIR   := $(ROOT)/../Tools/EventAssembler
 export CLIBDIR := $(ROOT)/../Tools/CLib
 
 # Tools
+
+export TABLE := $(PYTHON3) $(TOOLSDIR)/convert_table.py
 
 export EADEP := $(EADIR)/Tools/ea-dep$(EXE)
 export LYN   := $(EADIR)/Tools/lyn$(EXE)
@@ -49,6 +58,30 @@ $(DESTDIR):
 
 $(CACHEDIR):
 	@mkdir -p $(CACHEDIR)
+
+# General tool recipes
+
+# This has a fixed output path/extension.
+# Might change this later.
+%.tsv.event: %.tsv
+	@$(NOTIFY_PROCESS)
+	@$(TABLE) $<
+
+# Make is deleting tables after building, so...
+.PRECIOUS: %.tsv.event
+
+# Cleaning stuff
+
+ifneq (,$(findstring clean,$(MAKECMDGOALS)))
+
+  TABLEFILES := $(shell find -type f -name '*.tsv')
+
+  EVENT_TABLES_GENERATED := $(TABLEFILES:.tsv=.tsv.event)
+
+endif
+
+clean::
+	@$(RM) $(EVENT_TABLES_GENERATED)
 
 veryclean:: clean
 	@$(RM) $(CACHEDIR)/*
