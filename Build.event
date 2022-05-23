@@ -23,6 +23,8 @@
     // Replacing the difficult mode difficulty select text
     setText(0x14B, TestString)
 
+    #include "SRC/MovingSounds/Installer.event"
+
   ASSERT (FreeSpaceEnd - CURRENTOFFSET)
 
 #endif // __MAIN

@@ -39,7 +39,7 @@ SDEPFLAGS = --MD "$(CACHEDIR)/$(notdir $*).d"
 
 %.asm: %.c | $(CACHEDIR)
 	@$(NOTIFY_PROCESS)
-	@$(CC) $(CFLAGS) $(CDEPFLAGS) -S $< -o $@ $(ERROR_FILTER)
+	@$(CC) $(CFLAGS) $(CDEPFLAGS) -S $< -o $@ -fverbose-asm $(ERROR_FILTER)
 
 # Stan says that we need to avoid deleting intermediate .o files
 # or dependency stuff will break, so:

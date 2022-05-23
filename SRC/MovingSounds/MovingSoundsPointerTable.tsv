@@ -1,0 +1,17 @@
+POIN	Pointer
+NoMovingSound	0
+NormalMovingSound	gMUSfxDef_Foot
+HeavyMovingSound	gMUSfxDef_Heavy
+MountedMovingSound	gMUSfxDef_Mounted
+WyvernMovingSound	gMUSfxDef_Wyvern
+PegasusMovingSound	gMUSfxDef_Pegasus
+Unused089A2A86MovingSound	gMUSfxDef_Unused_089A2A86
+ZombieMovingSound	gMUSfxDef_Zombie
+SkeletonMovingSound	gMUSfxDef_Skeleton
+MogallMovingSound	gMUSfxDef_Mogall
+SpiderMovingSound	gMUSfxDef_Spider
+DogMovingSound	gMUSfxDef_Dog
+GorgonMovingSound	gMUSfxDef_Gorgon
+Unused_089A2B8AMovingSound	gMUSfxDef_Unused_089A2B8A
+BoatMovingSound	gMUSfxDef_Boat
+MyrrhMovingSound	gMUSfxDef_Myrrh

@@ -1,0 +1,175 @@
+
+#ifndef __MOVINGSOUNDS
+  #define __MOVINGSOUNDS
+
+  #include "../Helpers.event"
+  #include "Extensions/Hack Installation.txt"
+
+  /*
+   * This hack changes the way that a class's movement
+   * sounds are determined, turning them into an easy-to-edit
+   * table.
+   * 
+   * This hack is originally by Tequila.
+   * 
+   * To set a class's movement sounds, use the `SetMovingSound()`
+   * macro in the space marked below for each class. The second
+   * parameter, `MovementSoundType`, is an ID into `gStepSoundPointers`,
+   * so check the leftmost column of cells for available values.
+   * 
+   * To create a custom movement sound, use the `MovingSoundHeader()`
+   * macro along with a list of sound effects (see example below)
+   * anywhere in freespace (It's recommended that you use the space below.)
+   * and add a pointer to it into the `MovingSoundsPointerTable.tsv` table.
+   */
+
+  // Class Sound Table helpers
+
+  #define SetMovingSound(ClassID, MovementSoundType) "PUSH; ORG gStepSoundClasses + (ClassID * 1); BYTE MovementSoundType; POP"
+
+  // Custom moving sound helpers
+
+  /*
+   * `LowPriorityOffset` is the number of sound table entries
+   * away the low-priority copies of the sound effects used
+   * in a moving sound are from the normal sound effects.
+   * For instance, mounted moving sounds use three sound effects,
+   * with their low-priority versions immediately afterward in the
+   * sound table, so the `LowPriorityOffset` for mounted moving
+   * sounds would be 3. If your moving sound data uses vanilla
+   * sound effects from different sets, you should probably make
+   * sure that the `LowPriorityOffset` is the same for all of them.
+   */
+  #define MovingSoundHeader(LowPriorityOffset, DataStart, DataEnd) "SHORT ((DataEnd - DataStart) / 2); SHORT LowPriorityOffset;"
+
+  #ifndef NoSound
+    #define NoSound 0
+  #endif // NoSound
+
+  // Vanilla moving sound pointers
+
+  // Names are taken from the decomp.
+  #define gMUSfxDef_Foot            (0x089A2998)
+  #define gMUSfxDef_Heavy           (0x089A29BC)
+  #define gMUSfxDef_Mounted         (0x089A2A00)
+  #define gMUSfxDef_Wyvern          (0x089A2A2E)
+  #define gMUSfxDef_Pegasus         (0x089A2A5A)
+  #define gMUSfxDef_Unused_089A2A86 (0x089A2A86)
+  #define gMUSfxDef_Zombie          (0x089A2AB2)
+  #define gMUSfxDef_Skeleton        (0x089A2AD4)
+  #define gMUSfxDef_Mogall          (0x089A2AF6)
+  #define gMUSfxDef_Spider          (0x089A2B22)
+  #define gMUSfxDef_Dog             (0x089A2B3A)
+  #define gMUSfxDef_Gorgon          (0x089A2B68)
+  #define gMUSfxDef_Unused_089A2B8A (0x089A2B8A) // Mislabeled in decomp as `089A2BCE`
+  #define gMUSfxDef_Boat            (0x089A2BCE)
+  #define gMUSfxDef_Myrrh           (0x089A2C02)
+
+  PUSH
+
+    ORG 0x00078D6C
+      #include "MovingSounds.lyn.event"
+      #ifdef __DEBUG
+        MESSAGE Moving Sounds Main code ends at CURRENTOFFSET
+      #endif // __DEBUG
+
+      // You can check this `.tsv.event` for definitions for
+      // the possible movement sound types.
+      gStepSoundPointers: {
+        #include "MovingSoundsPointerTable.tsv.event"
+      }
+      #ifdef __DEBUG
+        MESSAGE Moving Sounds Pointer Table ends at CURRENTOFFSET
+      #endif // __DEBUG
+
+      // This table lays out the default mapping of
+      // classes: sounds, but you should use the
+      // `SetMovingSound()` macro in the space below.
+      // This is pre-padded out to 256 entries, no
+      // expansion is needed if you have an extended
+      // class table.
+
+      // This uses the class names included in EAStdlib's
+      // `FE8 Definitions.txt`. It also preserves all of the
+      // weird/bad class movement sounds in vanilla.
+      gStepSoundClasses: {
+        #include "MovingSoundsDefaultClassTable.tsv.event"
+      }
+      #ifdef __DEBUG
+        MESSAGE Moving Sounds Class Table ends at CURRENTOFFSET
+      #endif // __DEBUG
+
+      // Place your overrides here.
+
+      // SetMovingSound(EirikaLord, WyvernMovingSound)
+      // SetMovingSound(Paladin, CustomMovingSound)
+
+      // End of overrides.
+
+      RESERVE(0x00078D6C, 0x00079030)
+
+  POP
+
+  // Place your custom moving sounds here.
+
+  /*
+
+  // This defines a custom walking sound that alternates
+  // between skeleton and zombie step sound effects.
+
+    // You'd use it by adding a row to `MovingSoundsPointerTable.tsv`
+    // that has its leftmost cell as something like `CustomMovingSound`
+    // and `Pointer` cell as `gMUSfxCustomExample`.
+
+    // Some helper values
+
+      #define ZombieWalkSound          0x0302
+      #define ZombieWalkSoundLowPrio   0x0303
+      #define SkeletonWalkSound        0x0304
+      #define SkeletonWalkSoundLowPrio 0x0305
+
+      // All sounds within a moving sound
+      // must have the same low priority offset.
+
+      #define ZombieWalkSoundLowPriorityOffset "ZombieWalkSoundLowPrio-ZombieWalkSound"
+      #define SkeletonWalkSoundLowPriorityOffset "SkeletonWalkSoundLowPrio-SkeletonWalkSound"
+
+    // I enclose this in a scope so I can reuse
+    // the `_DataStart` and `_DataEnd` labels.
+    gMUSfxCustomExample: {
+
+      // Moving sounds begin with this header.
+      MovingSoundHeader(ZombieWalkSoundLowPriorityOffset, _DataStart, _DataEnd)
+
+      // This data determines what sound effect to play
+      // on each frame that the unit is moving.
+      // Each `SHORT` is a sound effect ID or `NoSound`.
+      _DataStart: {
+
+        // Skeleton walk for 1 frame, silence for 10 frames
+
+        SHORT SkeletonWalkSound
+        SHORT NoSound NoSound NoSound NoSound NoSound
+        SHORT NoSound NoSound NoSound NoSound NoSound
+
+        // Zombie walk for 1 frame, silence for 10 frames
+
+        SHORT ZombieWalkSound
+        SHORT NoSound NoSound NoSound NoSound NoSound
+        SHORT NoSound NoSound NoSound NoSound NoSound
+
+      }; _DataEnd:
+    }
+
+    // Clean up
+
+      #undef ZombieWalkSound
+      #undef ZombieWalkSoundLowPrio
+      #undef SkeletonWalkSound
+      #undef SkeletonWalkSoundLowPrio
+      #undef ZombieWalkSoundLowPriorityOffset
+      #undef SkeletonWalkSoundLowPriorityOffset
+
+  */
+
+#endif // __MOVINGSOUNDS
