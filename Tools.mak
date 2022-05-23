@@ -11,36 +11,36 @@ include $(DEVKITARM)/base_tools
 # One day I'll set up a Linux VM to test this.
 
 ifeq ($(OS),Windows_NT)
-  EXE    := .exe
-  COMPAT := 
+  export EXE    := .exe
+  export COMPAT := 
 else
-  EXE    := 
-  COMPAT := wine
+  export EXE    := 
+  export COMPAT := wine
 endif
 
 # Folders
 
 # This requires that this `Tools.mak` file is in our project root.
-ROOT := $(realpath .)
+export ROOT := $(realpath .)
 
-DESTDIR  := $(ROOT)/BIN
-SRCDIR   := $(ROOT)/SRC
-CACHEDIR := $(ROOT)/.CACHE
+export DESTDIR  := $(ROOT)/BIN
+export SRCDIR   := $(ROOT)/SRC
+export CACHEDIR := $(ROOT)/.CACHE
 
-EADIR   := $(ROOT)/../Tools/EventAssembler
-CLIBDIR := $(ROOT)/../Tools/CLib
+export EADIR   := $(ROOT)/../Tools/EventAssembler
+export CLIBDIR := $(ROOT)/../Tools/CLib
 
 # Tools
 
-EADEP := $(EADIR)/Tools/ea-dep$(EXE)
-LYN   := $(EADIR)/Tools/lyn$(EXE)
+export EADEP := $(EADIR)/Tools/ea-dep$(EXE)
+export LYN   := $(EADIR)/Tools/lyn$(EXE)
 
 # These must be run with $(COMPAT) on non-Windows but are listed
 # here without it because we do some `cd` shenanigans elsewhere.
-EA_NL := $(EADIR)/Core.exe
-EA_CC := $(EADIR)/ColorzCore.exe
+export EA_NL := $(EADIR)/Core.exe
+export EA_CC := $(EADIR)/ColorzCore.exe
 
-NOTIFY_PROCESS = @echo "$(notdir $<) => $(notdir $@)"
+export NOTIFY_PROCESS = @echo "$(notdir $<) => $(notdir $@)"
 
 # Special directories
 
