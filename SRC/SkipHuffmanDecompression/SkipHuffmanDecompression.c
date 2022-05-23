@@ -14,15 +14,17 @@ enum
 
 void RemoveHuffmanPadding(char* text) // 0x0800A1C8
 {
-  // This function removes Huffman padding characters at
-  // the end of a text entry. This is a lot of work
-  // just to replace one byte, and it's weird that
-  // it just leaves the padding bytes that end up at the
-  // ends of odd-width lines.
+  /*
+   * This function removes Huffman padding characters at
+   * the end of a text entry. This is a lot of work
+   * just to replace one byte, and it's weird that
+   * it just leaves the padding bytes that end up at the
+   * ends of odd-width lines.
 
-  // This is slightly different from the vanilla function,
-  // mostly in that it doesn't use an s16 for the position.
-  // This ends up saving us a lot of space.
+   * This is slightly different from the vanilla function,
+   * mostly in that it doesn't use an s16 for the position.
+   * This ends up saving us a lot of space.
+   */
 
   int pos = 0;
   char current;
@@ -62,10 +64,12 @@ void RemoveHuffmanPadding(char* text) // 0x0800A1C8
 
 void HuffmanTextDecompReplacement(const char* source, char* dest) // Original at 0x08002BA4
 {
-  // This is our actual code. Since we're using the uppermost
-  // bit of our pointer to flag entries as uncompressed,
-  // we can just treat the pointer like a signed value
-  // and use that to select our copying method.
+  /*
+   * This is our actual code. Since we're using the uppermost
+   * bit of our pointer to flag entries as uncompressed,
+   * we can just treat the pointer like a signed value
+   * and use that to select our copying method.
+   */
 
   if ((s32)source > 0)
     gpARM_HuffmanTextDecomp(source, dest);
