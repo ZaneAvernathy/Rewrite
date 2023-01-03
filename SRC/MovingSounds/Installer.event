@@ -11,6 +11,7 @@
    * table.
    * 
    * This hack is originally by Tequila.
+   * https://feuniverse.us/t/1655/2
    * 
    * To set a class's movement sounds, use the `SetMovingSound()`
    * macro in the space marked below for each class. The second
@@ -70,7 +71,7 @@
     ORG 0x00078D6C
       #include "MovingSounds.lyn.event"
       #ifdef __DEBUG
-        MESSAGE Moving Sounds Main code ends at CURRENTOFFSET
+        MESSAGE Moving Sounds Main Code 0x00078D6C to CURRENTOFFSET
       #endif // __DEBUG
 
       // You can check this `.tsv.event` for definitions for
@@ -79,7 +80,7 @@
         #include "MovingSoundsPointerTable.tsv.event"
       }
       #ifdef __DEBUG
-        MESSAGE Moving Sounds Pointer Table ends at CURRENTOFFSET
+        MESSAGE Moving Sounds Pointer Table gStepSoundPointers to CURRENTOFFSET
       #endif // __DEBUG
 
       // This table lays out the default mapping of
@@ -96,7 +97,7 @@
         #include "MovingSoundsDefaultClassTable.tsv.event"
       }
       #ifdef __DEBUG
-        MESSAGE Moving Sounds Class Table ends at CURRENTOFFSET
+        MESSAGE Moving Sounds Class Table gStepSoundClasses to CURRENTOFFSET
       #endif // __DEBUG
 
       // Place your overrides here.
@@ -109,6 +110,8 @@
       RESERVE(0x00078D6C, 0x00079030)
 
   POP
+
+  CustomMovingSoundsStart:
 
   // Place your custom moving sounds here.
 
@@ -171,5 +174,9 @@
       #undef SkeletonWalkSoundLowPriorityOffset
 
   */
+
+  #ifdef __DEBUG
+    MESSAGE Moving Sounds Custom Sounds CustomMovingSoundsStart to CURRENTOFFSET
+  #endif // __DEBUG
 
 #endif // __MOVINGSOUNDS
