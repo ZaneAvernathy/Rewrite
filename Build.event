@@ -17,6 +17,7 @@
 
     #include "SRC/SkipHuffmanDecompression/Installer.event"
     #include "SRC/MovingSounds/Installer.event"
+    #include "SRC/AllegiancePalettes/Installer.event"
 
 
 

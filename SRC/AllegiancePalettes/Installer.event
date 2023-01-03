@@ -1,0 +1,86 @@
+
+#ifndef __ALLEGIANCEPALETTES
+  #define __ALLEGIANCEPALETTES
+
+  #include "EAstdlib.event"
+  #include "../Helpers.event"
+
+  /*
+   * This hack allows for an allegiance's map sprite palette
+   * to change based on whether some condition(s) are met,
+   * such as during specific chapters or if an event flag is set.
+   * 
+   * This hack is originally by Vesly.
+   * https://github.com/Veslyquix/ASM/tree/main/AllegiancePalette
+   * 
+   * To set a custom palette setting, add an `AlPalEntry` macro
+   * (or one of the derivative macros below) into the space marked below.
+   * 
+   * Causing some action that would cause some entry's condition(s) to
+   * be true may not automatically refresh the map sprite palettes.
+   * In this case, you should call the function `void LoadMapSpritePalettes()`.
+   */
+
+  AllegiancePalettesStart:
+  #include "AllegiancePalettes.lyn.event"
+  #ifdef __DEBUG
+    MESSAGE Allegiance Palette Code AllegiancePalettesStart to CURRENTOFFSET
+  #endif // __DEBUG
+
+  // Also protecting the replaced original function.
+  PROTECT 0x00026628 0x00026670
+
+  // Misc. Helpers
+
+    /*
+     * Parameters/parameter fields with this value
+     * will be ignored during condition checks.
+     */
+    #define AlPalIgnore (-1)
+
+    // Helper for packing two bytes into a short
+    #define packShort2(lower, higher) "((higher & 0xFF) << 8) | (lower & 0xFF)"
+
+    // Vanilla map sprite palettes
+
+      #define gAlPalPlayer 0x859EE20
+      #define gAlPalEnemy  0x859EE40
+      #define gAlPalNPC    0x859EE60
+      #define gAlPalGray   0x859EE80
+      #define gAlPalArena  0x859EEA0
+
+  /*
+   * `condition` is a function with the signature `bool condition(u16 param)` that
+   * controls whether the `allegiance` should use the `palette`. The `param`
+   * is a short that has a condition-specific meaning. The `allegiance` should be one
+   * of the EAstdlib values (`Ally`, `NPC`, `Enemy`) or 3 for arena units.
+   */
+  #define AlPalEntry(palette, allegiance, condition, param) "POIN palette condition; SHORT allegiance param"
+
+  // Entry helpers
+
+    /*
+     * The palette will be used if the current chapter matches the
+     * specified one and the specified event flag is set.
+     * 
+     * If you only want to check against either a chapter or flag,
+     * you can use the variants below.
+     */
+    #define AlPalChapterAndFlag(palette, allegiance, chapterID, eventFlag) "AlPalEntry(palette, allegiance, AlPalConditionChapterAndFlag, packShort2(chapterID, eventFlag))"
+    #define AlPalChapter(palette, allegiance, chapterID) "AlPalEntry(palette, allegiance, AlPalConditionChapterAndFlag, packShort2(chapterID, AlPalIgnore))"
+    #define AlPalFlag(palette, allegiance, eventFlag)    "AlPalEntry(palette, allegiance, AlPalConditionChapterAndFlag, packShort2(AlPalIgnore,  eventFlag))"
+
+  gAllegiancePalettes: {
+
+    // Place your `AlPalEntry` macros here.
+
+    // Make the player's units red during the prologue
+    // if the first entry in the guide has been read.
+    // AlPalChapterAndFlag(gAlPalEnemy, Ally, Prologue, 0xF0)
+
+  }; WORD 0
+  #ifdef __DEBUG
+    MESSAGE Allegiance Palette List gAllegiancePalettes to CURRENTOFFSET
+  #endif // __DEBUG
+
+#endif // __ALLEGIANCEPALETTES
