@@ -16,14 +16,9 @@
   ORG FreeSpace
 
     #include "SRC/SkipHuffmanDecompression/Installer.event"
-
-    // Testing `SkipHuffmanDecompression`
-
-    TestString:; BYTE 55 55 54; BYTE 0
-    // Replacing the difficult mode difficulty select text
-    setText(0x14B, TestString)
-
     #include "SRC/MovingSounds/Installer.event"
+
+
 
   ASSERT (FreeSpaceEnd - CURRENTOFFSET)
 
