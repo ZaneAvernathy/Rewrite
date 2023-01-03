@@ -18,4 +18,18 @@
    */
   #define RESERVE(Start, End) "PROTECT Start End; ASSERT (End - CURRENTOFFSET)"
 
+  /* PROTECT_FROM(Start)
+   * 
+   * This helper is a shorthand to PROTECT an area from
+   * the given Start address up to the current assembly offset.
+   * 
+   * Example:
+   * 
+   * PUSH; ORG 0x1000
+   * SomeLabel: {
+   *   #incbin "Somefile.bin"
+   * } ; PROTECT_FROM(SomeLabel); POP
+   */
+  #define PROTECT_FROM(Start) "PROTECT Start CURRENTOFFSET"
+
 #endif // __HELPERS
