@@ -84,5 +84,4 @@ clean::
 	@$(RM) $(EVENT_TABLES_GENERATED)
 
 veryclean:: clean
-	@$(RM) $(CACHEDIR)/*
-	@$(RM) -d $(CACHEDIR)
+	@$(RM) -rf $(CACHEDIR)

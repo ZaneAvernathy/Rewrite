@@ -75,4 +75,4 @@ clean::
 	@$(RM) $(DESTDIR)/*.*
 
 veryclean:: clean
-	@$(RM) -d $(DESTDIR)
+	@$(RM) -rf $(DESTDIR)

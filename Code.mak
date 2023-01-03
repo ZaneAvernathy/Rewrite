@@ -26,20 +26,20 @@ SDEPFLAGS = --MD "$(CACHEDIR)/$(notdir $*).d"
 
 %.dmp: %.o | $(CACHEDIR)
 	@$(NOTIFY_PROCESS)
-	@$(OBJCOPY) -S $< -O binary $@
+	@$(OBJCOPY) -S "$<" -O binary "$@"
 
 %.o: %.s | $(CACHEDIR)
 	@$(NOTIFY_PROCESS)
-	@$(AS) $(ASFLAGS) $(SDEPFLAGS) -I $(dir $<) $< -o $@ $(ERROR_FILTER)
+	@$(AS) $(ASFLAGS) $(SDEPFLAGS) -I $(dir "$<") "$<" -o "$@" $(ERROR_FILTER)
 
 # Skipping intermediate .s files becasue Stan says they break things.
 %.o: %.c | $(CACHEDIR)
 	@$(NOTIFY_PROCESS)
-	@$(CC) $(CFLAGS) $(CDEPFLAGS) -g -c $< -o $@ $(ERROR_FILTER)
+	@$(CC) $(CFLAGS) $(CDEPFLAGS) -g -c "$<" -o "$@" $(ERROR_FILTER)
 
 %.asm: %.c | $(CACHEDIR)
 	@$(NOTIFY_PROCESS)
-	@$(CC) $(CFLAGS) $(CDEPFLAGS) -S $< -o $@ -fverbose-asm $(ERROR_FILTER)
+	@$(CC) $(CFLAGS) $(CDEPFLAGS) -S "$<" -o "$@" -fverbose-asm $(ERROR_FILTER)
 
 # Stan says that we need to avoid deleting intermediate .o files
 # or dependency stuff will break, so:
