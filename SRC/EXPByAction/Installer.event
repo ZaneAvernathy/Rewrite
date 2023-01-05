@@ -1,0 +1,61 @@
+
+#ifndef __EXPBYACTION
+  #define __EXPBYACTION
+
+  #include "EAstdlib.event"
+  #include "../Helpers.event"
+  #include "Extensions/Hack Installation.txt"
+
+  /*
+   * This hack allows you to have separate experience values
+   * for performing certain miscellaneous actions, instead of
+   * them all giving the same amount.
+   * 
+   * This is a rewrite of Contro's `EXP by Action` hack
+   * https://feuniverse.us/t/13514/14
+   * 
+   * In vanilla, only a few actions are affected, see below.
+   * 
+   * Use the `EXPByAction` macro in the space allotted below,
+   * optionally changing `EXPByActionDefaultExperience`.
+   */
+
+  EXPByActionStartStart:
+  #include "EXPByAction.lyn.event"
+  #ifdef __DEBUG
+    MESSAGE EXP by Action Code EXPByActionStartStart to CURRENTOFFSET
+  #endif // __DEBUG
+
+  // Also protecting the hooked function.
+  PROTECT 0x0002C6A0 0x0002C6EE
+
+  // Max experience: 255
+  #define EXPByActionDefaultExperience 10
+  #define EXPByAction(action, experience) "BYTE action experience"
+
+  // Dance, Steal, Summon, SummonDK are the possible actions
+  // that can use this in vanilla.
+
+  // Going to define some helpers for them here.
+
+    #define UNIT_ACTION_DANCE     4
+    #define UNIT_ACTION_STEAL     6
+    #define UNIT_ACTION_SUMMON    7
+    #define UNIT_ACTION_SUMMON_DK 8
+
+  ALIGN 4; gEXPByActionList: {
+
+    // Put your actions here.
+
+    // This causes stealing to grant 42 experience.
+    // EXPByAction(UNIT_ACTION_STEAL, 42)
+
+  }; SHORT (-1)
+
+  ALIGN 4; gEXPByActionDefaultExperience:; BYTE EXPByActionDefaultExperience; ALIGN 4
+
+  #ifdef __DEBUG
+    MESSAGE EXP by Action Data gEXPByActionList to CURRENTOFFSET
+  #endif // __DEBUG
+
+#endif // __EXPBYACTION
