@@ -4,6 +4,7 @@
 
   #include "EAstdlib.event"
   #include "../Helpers.event"
+  #include "Extensions/Hack Installation.txt"
 
   /*
    * This hack allows for an allegiance's map sprite palette
@@ -70,7 +71,7 @@
     #define AlPalChapter(palette, allegiance, chapterID) "AlPalEntry(palette, allegiance, AlPalConditionChapterAndFlag, packShort2(chapterID, AlPalIgnore))"
     #define AlPalFlag(palette, allegiance, eventFlag)    "AlPalEntry(palette, allegiance, AlPalConditionChapterAndFlag, packShort2(AlPalIgnore,  eventFlag))"
 
-  gAllegiancePalettes: {
+  ALIGN 4; gAllegiancePalettes: {
 
     // Place your `AlPalEntry` macros here.
 

@@ -76,7 +76,7 @@
 
       // You can check this `.tsv.event` for definitions for
       // the possible movement sound types.
-      gStepSoundPointers: {
+      ALIGN 4; gStepSoundPointers: {
         #include "MovingSoundsPointerTable.tsv.event"
       }
       #ifdef __DEBUG
@@ -93,7 +93,7 @@
       // This uses the class names included in EAStdlib's
       // `FE8 Definitions.txt`. It also preserves all of the
       // weird/bad class movement sounds in vanilla.
-      gStepSoundClasses: {
+      ALIGN 4; gStepSoundClasses: {
         #include "MovingSoundsDefaultClassTable.tsv.event"
       }
       #ifdef __DEBUG
@@ -111,7 +111,7 @@
 
   POP
 
-  CustomMovingSoundsStart:
+  ALIGN 4; CustomMovingSoundsStart:
 
   // Place your custom moving sounds here.
 
