@@ -15,11 +15,11 @@ In the vanilla game, a class's movement sounds are determined by two switch stat
 
 The original version of this hack was written by Tequila, and can be found [**in his thread**](https://feuniverse.us/t/1655/2).
 
-Thanks to the decompilation folks and Stan, without whom I would have had no idea what the vanilla code was doing.
+Thanks to the decompilation folks and Nat, without whom I would have had no idea what the vanilla code was doing.
 
 ### Project structure, tools, etc.
 
-Shoutouts to Stan for everything that he does. ea-dep, lyn, EA stuff, a bunch of makefile stuff (including most of how I'm doing things here), and many other things are all from him.
+Shoutouts to Nat for everything that they do. ea-dep, lyn, EA stuff, a bunch of makefile stuff (including most of how I'm doing things here), and many other things are all from them.
 
 Shoutouts to CrazyColorz5 for ColorzCore and EA maintenance, along with EA tools and cool wizardry.
 

@@ -55,7 +55,7 @@ If you want to build these from source anywhere else, similar rules apply: they 
 
 Some inspirations:
 
-* **Stan**: [github](https://github.com/StanHash) | [FEU thread](https://feuniverse.us/t/2376)
+* **Nat/Stan**: [github](https://github.com/StanHash) | [FEU thread](https://feuniverse.us/t/2376)
 * **Huichelaar**: [github](https://github.com/Huichelaar) | [FEU thread](https://feuniverse.us/t/8229)
 * **Contro**: [github](https://github.com/masterofcontroversy/) | [FEU thread](https://feuniverse.us/t/13514)
 * **Vesly**: [github](https://github.com/Veslyquix) | [FEU thread](https://feuniverse.us/t/12011)

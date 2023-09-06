@@ -32,7 +32,7 @@ SDEPFLAGS = --MD "$(CACHEDIR)/$(notdir $*).d"
 	@$(NOTIFY_PROCESS)
 	@$(AS) $(ASFLAGS) $(SDEPFLAGS) -I $(dir "$<") "$<" -o "$@" $(ERROR_FILTER)
 
-# Skipping intermediate .s files becasue Stan says they break things.
+# Skipping intermediate .s files becasue Nat says they break things.
 %.o: %.c | $(CACHEDIR)
 	@$(NOTIFY_PROCESS)
 	@$(CC) $(CFLAGS) $(CDEPFLAGS) -g -c "$<" -o "$@" $(ERROR_FILTER)
@@ -41,7 +41,7 @@ SDEPFLAGS = --MD "$(CACHEDIR)/$(notdir $*).d"
 	@$(NOTIFY_PROCESS)
 	@$(CC) $(CFLAGS) $(CDEPFLAGS) -S "$<" -o "$@" -fverbose-asm $(ERROR_FILTER)
 
-# Stan says that we need to avoid deleting intermediate .o files
+# Nat says that we need to avoid deleting intermediate .o files
 # or dependency stuff will break, so:
 # Also, I just want to keep intermediate files between builds, anyway.
 .PRECIOUS: %.o %.asm %.lyn.event %.dmp
