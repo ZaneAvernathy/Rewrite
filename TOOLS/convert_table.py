@@ -17,7 +17,10 @@ from typing import Any
 
 def mangle(text: str) -> str:
   """Remove illegal characters."""
-  return "".join([c for c in text if (c in ascii_letters) or (c in digits)])
+  return "".join([
+      c for c in text
+      if (c in ascii_letters) or (c in digits) or (c == "_")
+    ])
 
 
 # In order, these are:
