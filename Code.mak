@@ -1,7 +1,7 @@
 
 # Code helpers
 
-LYN_REFERENCE := $(CLIBDIR)/reference/FE8U-20190316.o
+LYN_REFERENCE := $(CLIBDIR)/reference/FE8U-20190316.o $(SRCDIR)/CommonDefinitions.o
 
 INCLUDE_DIRS := $(CLIBDIR)/include
 INCFLAGS     := $(foreach dir,$(INCLUDE_DIRS), -I "$(dir)")
@@ -22,7 +22,7 @@ SDEPFLAGS = --MD "$(CACHEDIR)/$(notdir $*).d"
 
 %.lyn.event: %.o $(LYN_REFERENCE) | $(CACHEDIR)
 	@$(NOTIFY_PROCESS)
-	@$(LYN) "$<" "$(LYN_REFERENCE)" > "$@" || ($(RM) "$@" && false)
+	@$(LYN) "$<" $(LYN_REFERENCE) > "$@" || ($(RM) "$@" && false)
 
 %.dmp: %.o | $(CACHEDIR)
 	@$(NOTIFY_PROCESS)
@@ -30,7 +30,7 @@ SDEPFLAGS = --MD "$(CACHEDIR)/$(notdir $*).d"
 
 %.o: %.s | $(CACHEDIR)
 	@$(NOTIFY_PROCESS)
-	@$(AS) $(ASFLAGS) $(SDEPFLAGS) -I $(dir "$<") "$<" -o "$@" $(ERROR_FILTER)
+	@$(AS) $(ASFLAGS) $(SDEPFLAGS) -I "$(dir $<)" "$<" -o "$@" $(ERROR_FILTER)
 
 # Skipping intermediate .s files becasue Nat says they break things.
 %.o: %.c | $(CACHEDIR)

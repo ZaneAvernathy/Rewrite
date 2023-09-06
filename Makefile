@@ -4,7 +4,7 @@
 SHELL = /bin/sh
 
 .SUFFIXES:
-.PHONY:
+.PHONY: all debug clean veryclean
 .DEFAULT_GOAL := all
 
 include Tools.mak
@@ -45,5 +45,3 @@ else
 debug:
 endif
 	@# This is a hack to get make to be quiet.
-
-.PHONY: all debug clean veryclean
