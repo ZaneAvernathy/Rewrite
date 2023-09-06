@@ -19,6 +19,7 @@
     #include "SRC/MovingSounds/Installer.event"
     #include "SRC/AllegiancePalettes/Installer.event"
     #include "SRC/EXPByAction/Installer.event"
+    #include "SRC/ChapterTitlesAsText/Installer.event"
 
 
 

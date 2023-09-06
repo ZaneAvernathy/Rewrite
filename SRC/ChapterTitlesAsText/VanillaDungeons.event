@@ -1,0 +1,80 @@
+
+ALIGN 4; gTowerOfValni1ChapterTitle:
+#incbin "TEXT/TowerOfValni1.txt"
+BYTE 0
+
+ALIGN 4; gTowerOfValni2ChapterTitle:
+#incbin "TEXT/TowerOfValni2.txt"
+BYTE 0
+
+ALIGN 4; gTowerOfValni3ChapterTitle:
+#incbin "TEXT/TowerOfValni3.txt"
+BYTE 0
+
+ALIGN 4; gTowerOfValni4ChapterTitle:
+#incbin "TEXT/TowerOfValni4.txt"
+BYTE 0
+
+ALIGN 4; gTowerOfValni5ChapterTitle:
+#incbin "TEXT/TowerOfValni5.txt"
+BYTE 0
+
+ALIGN 4; gTowerOfValni6ChapterTitle:
+#incbin "TEXT/TowerOfValni6.txt"
+BYTE 0
+
+ALIGN 4; gTowerOfValni7ChapterTitle:
+#incbin "TEXT/TowerOfValni7.txt"
+BYTE 0
+
+ALIGN 4; gTowerOfValni8ChapterTitle:
+#incbin "TEXT/TowerOfValni8.txt"
+BYTE 0
+
+ALIGN 4; gTowerOfValni9ChapterTitle:
+#incbin "TEXT/TowerOfValni9.txt"
+BYTE 0
+
+ALIGN 4; gTowerOfValni10ChapterTitle:
+#incbin "TEXT/TowerOfValni10.txt"
+BYTE 0
+
+ALIGN 4; gLagdouRuins1ChapterTitle:
+#incbin "TEXT/LagdouRuins1.txt"
+BYTE 0
+
+ALIGN 4; gLagdouRuins2ChapterTitle:
+#incbin "TEXT/LagdouRuins2.txt"
+BYTE 0
+
+ALIGN 4; gLagdouRuins3ChapterTitle:
+#incbin "TEXT/LagdouRuins3.txt"
+BYTE 0
+
+ALIGN 4; gLagdouRuins4ChapterTitle:
+#incbin "TEXT/LagdouRuins4.txt"
+BYTE 0
+
+ALIGN 4; gLagdouRuins5ChapterTitle:
+#incbin "TEXT/LagdouRuins5.txt"
+BYTE 0
+
+ALIGN 4; gLagdouRuins6ChapterTitle:
+#incbin "TEXT/LagdouRuins6.txt"
+BYTE 0
+
+ALIGN 4; gLagdouRuins7ChapterTitle:
+#incbin "TEXT/LagdouRuins7.txt"
+BYTE 0
+
+ALIGN 4; gLagdouRuins8ChapterTitle:
+#incbin "TEXT/LagdouRuins8.txt"
+BYTE 0
+
+ALIGN 4; gLagdouRuins9ChapterTitle:
+#incbin "TEXT/LagdouRuins9.txt"
+BYTE 0
+
+ALIGN 4; gLagdouRuins10ChapterTitle:
+#incbin "TEXT/LagdouRuins10.txt"
+BYTE 0

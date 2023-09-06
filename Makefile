@@ -27,6 +27,8 @@ OUT_NAME := Rewrite
 include Code.mak
 include EA.mak
 
+include $(SRCDIR)/ChapterTitlesAsText/Makefile
+
 # Targets:
 
 all: nl cc

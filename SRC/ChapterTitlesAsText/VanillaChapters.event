@@ -1,0 +1,108 @@
+
+ALIGN 4; gTheFallOfRenaisChapterTitle:
+#incbin "TEXT/TheFallOfRenais.txt"
+BYTE 0
+
+ALIGN 4; gEscapeChapterTitle:
+#incbin "TEXT/Escape.txt"
+BYTE 0
+
+ALIGN 4; gTheProtectedChapterTitle:
+#incbin "TEXT/TheProtected.txt"
+BYTE 0
+
+ALIGN 4; gTheBanditsOfBorgoChapterTitle:
+#incbin "TEXT/TheBanditsOfBorgo.txt"
+BYTE 0
+
+ALIGN 4; gAncientHorrorsChapterTitle:
+#incbin "TEXT/AncientHorrors.txt"
+BYTE 0
+
+ALIGN 4; gUnbrokenHeartChapterTitle:
+#incbin "TEXT/UnbrokenHeart.txt"
+BYTE 0
+
+ALIGN 4; gTheEmpiresReachChapterTitle:
+#incbin "TEXT/TheEmpiresReach.txt"
+BYTE 0
+
+ALIGN 4; gVictimsOfWarChapterTitle:
+#incbin "TEXT/VictimsOfWar.txt"
+BYTE 0
+
+ALIGN 4; gWatersideRenvallChapterTitle:
+#incbin "TEXT/WatersideRenvall.txt"
+BYTE 0
+
+ALIGN 4; gItsATrapChapterTitle:
+#incbin "TEXT/ItsATrap.txt"
+BYTE 0
+
+ALIGN 4; gDistantBladeChapterTitle:
+#incbin "TEXT/DistantBlade.txt"
+BYTE 0
+
+ALIGN 4; gRevoltAtCarcinoChapterTitle:
+#incbin "TEXT/RevoltAtCarcino.txt"
+BYTE 0
+
+ALIGN 4; gVillageOfSilenceChapterTitle:
+#incbin "TEXT/VillageOfSilence.txt"
+BYTE 0
+
+ALIGN 4; gHamillCanyonChapterTitle:
+#incbin "TEXT/HamillCanyon.txt"
+BYTE 0
+
+ALIGN 4; gQueenOfWhiteDunesChapterTitle:
+#incbin "TEXT/QueenOfWhiteDunes.txt"
+BYTE 0
+
+ALIGN 4; gScorchedSandChapterTitle:
+#incbin "TEXT/ScorchedSand.txt"
+BYTE 0
+
+ALIGN 4; gRuledByMadnessChapterTitle:
+#incbin "TEXT/RuledByMadness.txt"
+BYTE 0
+
+ALIGN 4; gRiverOfRegretsChapterTitle:
+#incbin "TEXT/RiverOfRegrets.txt"
+BYTE 0
+
+ALIGN 4; gTwoFacesOfEvilChapterTitle:
+#incbin "TEXT/TwoFacesOfEvil.txt"
+BYTE 0
+
+ALIGN 4; gLastHopeChapterTitle:
+#incbin "TEXT/LastHope.txt"
+BYTE 0
+
+ALIGN 4; gDarklingWoodsChapterTitle:
+#incbin "TEXT/DarklingWoods.txt"
+BYTE 0
+
+ALIGN 4; gSacredStoneChapterTitle:
+#incbin "TEXT/SacredStone.txt"
+BYTE 0
+
+ALIGN 4; gFortRigwaldChapterTitle:
+#incbin "TEXT/FortRigwald.txt"
+BYTE 0
+
+ALIGN 4; gTurningTraitorChapterTitle:
+#incbin "TEXT/TurningTraitor.txt"
+BYTE 0
+
+ALIGN 4; gLandingAtTaizelChapterTitle:
+#incbin "TEXT/LandingAtTaizel.txt"
+BYTE 0
+
+ALIGN 4; gFluorsparsOathChapterTitle:
+#incbin "TEXT/FluorsparsOath.txt"
+BYTE 0
+
+ALIGN 4; gFatherAndSonChapterTitle:
+#incbin "TEXT/FatherAndSon.txt"
+BYTE 0

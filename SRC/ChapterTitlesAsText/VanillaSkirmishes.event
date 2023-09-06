@@ -1,0 +1,48 @@
+
+ALIGN 4; gANewJourneyChapterTitle:
+#incbin "TEXT/ANewJourney.txt"
+BYTE 0
+
+ALIGN 4; gCreepingDarknessChapterTitle:
+#incbin "TEXT/CreepingDarkness.txt"
+BYTE 0
+
+ALIGN 4; gPhantomShipChapterTitle:
+#incbin "TEXT/PhantomShip.txt"
+BYTE 0
+
+ALIGN 4; gZahaWoodsChapterTitle:
+#incbin "TEXT/ZahaWoods.txt"
+BYTE 0
+
+ALIGN 4; gAdlasPlainsChapterTitle:
+#incbin "TEXT/AdlasPlains.txt"
+BYTE 0
+
+ALIGN 4; gTerasPlateauChapterTitle:
+#incbin "TEXT/TerasPlateau.txt"
+BYTE 0
+
+ALIGN 4; gHamillCanyonSkirmishChapterTitle:
+#incbin "TEXT/HamillCanyonSkirmish.txt"
+BYTE 0
+
+ALIGN 4; gBethroenChapterTitle:
+#incbin "TEXT/Bethroen.txt"
+BYTE 0
+
+ALIGN 4; gZaalbulMarshChapterTitle:
+#incbin "TEXT/ZaalbulMarsh.txt"
+BYTE 0
+
+ALIGN 4; gNarubeRiverChapterTitle:
+#incbin "TEXT/NarubeRiver.txt"
+BYTE 0
+
+ALIGN 4; gNelerasPeakChapterTitle:
+#incbin "TEXT/NelerasPeak.txt"
+BYTE 0
+
+ALIGN 4; gMelkaenCoastChapterTitle:
+#incbin "TEXT/MelkaenCoast.txt"
+BYTE 0
