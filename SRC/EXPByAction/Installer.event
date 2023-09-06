@@ -20,10 +20,10 @@
    * optionally changing `EXPByActionDefaultExperience`.
    */
 
-  EXPByActionStartStart:
+  EXPByActionStart:
   #include "EXPByAction.lyn.event"
   #ifdef __DEBUG
-    MESSAGE EXP by Action Code EXPByActionStartStart to CURRENTOFFSET
+    MESSAGE EXP by Action Code EXPByActionStart to CURRENTOFFSET
   #endif // __DEBUG
 
   // Also protecting the hooked function.
