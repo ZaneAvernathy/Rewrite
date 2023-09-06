@@ -61,7 +61,7 @@ CC_ERROR = || ($(RM) "$(CC_CORE_TARGET)" "$(CC_CORE_SYM)" && false)
 
 DEPS := $(shell $(EADEP) $(EVENT_MAIN) -I $(EADIR) --add-missings)
 
-$(DESTDIR)/$(OUT_NAME).%core.gba $(DESTDIR)/$(OUT_NAME).%core.sym: $(EVENT_MAIN) $(DEPS) | $(DESTDIR)
+$(DESTDIR)/$(OUT_NAME).%core.gba $(DESTDIR)/$(OUT_NAME).%core.sym &: $(EVENT_MAIN) $(DEPS) $(MAKEFILE_LIST) | $(DESTDIR)
 	@$(call run-ea,$*)
 
 # `nl` and `cc` are friendlier names for the targets.
