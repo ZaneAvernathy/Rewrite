@@ -3,7 +3,7 @@
 
 LYN_REFERENCE := $(CLIBDIR)/reference/FE8U-20190316.o $(SRCDIR)/CommonDefinitions.o
 
-INCLUDE_DIRS := $(CLIBDIR)/include
+INCLUDE_DIRS := $(CLIBDIR)/include $(THUMBLIBDIR)
 INCFLAGS     := $(foreach dir,$(INCLUDE_DIRS), -I "$(dir)")
 
 # Assembly/compilation flags

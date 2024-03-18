@@ -21,6 +21,7 @@
     #include "SRC/EXPByAction/Installer.event"
     #include "SRC/ChapterTitlesAsText/Installer.event"
 
+    #include "SRC/AnimationExpansion/Installer.event"
 
 
   ASSERT (FreeSpaceEnd - CURRENTOFFSET)

@@ -17,6 +17,7 @@ You'll need some source of `Make` and other GNU tools (such as through `devkitAR
 * [**lyn**](https://github.com/StanHash/lyn/releases)
 * [**ea-dep**](https://github.com/StanHash/ea-dep/releases)
 * [**devkitARM**](https://devkitpro.org/wiki/Getting_Started)
+* [**thumblib3**](https://github.com/ZaneAvernathy/thumblib3)
 * and an FE8U.gba ROM image
 
 and set up your folders like
@@ -30,6 +31,7 @@ Tools/
       ea-dep
     Core
     ColorzCore
+  thumblib3/
 FE8U.gba
 ```
 

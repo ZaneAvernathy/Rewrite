@@ -1,0 +1,63 @@
+
+#ifndef __ANIMATIONEXPANSION
+  #define __ANIMATIONEXPANSION
+
+  #include "EAstdlib.event"
+  #include "../Helpers.event"
+  #include "Extensions/Hack Installation.txt"
+
+  /*
+   * These hacks modify the animation system to add/change functionality.
+   *
+   * The C01 and C48 hacks are rewrites of Hextator's C01 and C48 hacks.
+   */
+
+  // These helpers are for indexing into the battle animation command handler's
+  // jump table, which is indexed into by command ID. This doesn't handle every index,
+  // so it isn't recommended for other things to modify this.
+
+  #define BattleAIS_ExecCommands_JumpTable 0x00058C44
+  #define BattleAIS_ExecCommands_JumpTableEntry(index) "BattleAIS_ExecCommands_JumpTable + (4 * index)"
+
+  /*
+   * This hack changes the animation command `85 00 00 01` (wait for HP
+   * changes to finish) such that it allows for a looping
+   * animation to play while HP changes occur.
+   */
+
+    PUSH; ORG 0x00005114
+      callHack_r0(AnimInterpret_HandleCommandReplacement)
+      B(0x000051B4)
+      #ifdef __DEBUG
+        MESSAGE Animation Expansion C01 Hook 0x00005114 to CURRENTOFFSET
+      #endif // __DEBUG
+      RESERVE(0x00005114, 0x00005172)
+    POP
+
+    #include "C01.lyn.event"
+    #ifdef __DEBUG
+      MESSAGE Animation Expansion C01 Code AnimInterpret_HandleCommandReplacement to CURRENTOFFSET
+    #endif // __DEBUG
+
+  /*
+   * This hack changes the animation command `85 00 00 48` (play SFX 0x48)
+   * to allow for any sound to be played using the format `85 XX YY 48`
+   * where `XXYY` is a song ID.
+   */
+
+    #define BattleAIS_ExecCommands_SwitchEnd (0x080596CC | 1)
+
+    #include "C48.lyn.event"
+    #ifdef __DEBUG
+      MESSAGE Animation Expansion C48 Code BattleAIS_ExecCommands_PlaySoundWrapper to CURRENTOFFSET
+    #endif // __DEBUG
+
+    PUSH; ORG BattleAIS_ExecCommands_JumpTableEntry(0x48)
+      POIN BattleAIS_ExecCommands_PlaySoundWrapper
+      PROTECT BattleAIS_ExecCommands_JumpTableEntry(0x48) CURRENTOFFSET
+      #ifdef __DEBUG
+        MESSAGE Animation Expansion C48 Jump Table Entry BattleAIS_ExecCommands_JumpTableEntry(0x48) to CURRENTOFFSET
+      #endif // __DEBUG
+    POP
+
+#endif // __ANIMATIONEXPANSION

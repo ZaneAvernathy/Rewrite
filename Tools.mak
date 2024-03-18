@@ -36,6 +36,7 @@ export TOOLSDIR := $(ROOT)/TOOLS
 
 export EADIR   := $(ROOT)/../Tools/EventAssembler
 export CLIBDIR := $(ROOT)/../Tools/CLib
+export THUMBLIBDIR := $(TOOLSDIR)/thumblib3
 
 # Tools
 

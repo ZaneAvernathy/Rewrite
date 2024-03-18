@@ -22,6 +22,8 @@ SET_FUNC GetSkirmishChapterTitleID, 0x0808979D
 SET_FUNC GetWMChapterID,    0x080BCFDD
 SET_FUNC GetNextWMLocation, 0x080BD015
 
+SET_FUNC CheckEkrHitDone, 0x080522CD
+
 SET_DATA gBgMapTarget, 0x2024CA8
 SET_DATA gChapterTitleTileInfo, 0x0203E78C
 SET_DATA gChapterTitleCardPalettes, 0x08A07AD8

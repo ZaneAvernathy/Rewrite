@@ -1,6 +1,7 @@
 
 /BIN
 /.CACHE
+/TOOLS/thumblib3
 **/*.sublime*
 **/*.lyn.event
 **/*.o
